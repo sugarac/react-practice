@@ -132,7 +132,7 @@ class App extends Component {
         <h1>Hi, I'm a React App</h1>
         <p className={assignedClasses.join(' ')}>This works</p>
         <button
-          className={classes.App}
+          className={btnClass}
           // style={style}
           onClick={this.togglePersonHanlder}>Toggle Persons
           </button>

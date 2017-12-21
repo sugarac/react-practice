@@ -1,8 +1,22 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Person from './Person/Person'
 
 class Persons extends Component {
-    render () {
+    constructor(props) {
+        super(props); //must write
+        console.log("Persons.js constructor", props);
+    }
+
+    componentWillMount() {
+        console.log("Persons.js componentWillMount");
+    }
+
+    componentDidMount() {
+        console.log('Persons.js componentDidMount');
+    }
+
+    render() {
+        console.log('Persons.js render');
         return this.props.persons.map((person, index) => {
             return <Person
                 click={() => this.props.clicked(index)}

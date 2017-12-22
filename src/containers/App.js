@@ -5,7 +5,11 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 import WithClass from '../hoc/WithClass';
 
+<<<<<<< HEAD
 class App extends PureComponent {
+=======
+class App extends Component {
+>>>>>>> 45c6efaf4c35aeeda6ab7d28d92d2113a1ddbaf7
   constructor(props) {
     super(props); //must write
     console.log("[App.js] constructor", props);
@@ -22,6 +26,7 @@ class App extends PureComponent {
 
   componentWillMount() {
     console.log("[App.js] componentWillMount");
+<<<<<<< HEAD
   }
 
   componentDidMount() {
@@ -41,6 +46,8 @@ class App extends PureComponent {
 
   componentDidUpdate() {
     console.log('update App.js componentDidUpdate');
+=======
+>>>>>>> 45c6efaf4c35aeeda6ab7d28d92d2113a1ddbaf7
   }
   // state = {
   //   persons: [
@@ -52,6 +59,23 @@ class App extends PureComponent {
   //   showPersons: false
   // }
 
+<<<<<<< HEAD
+=======
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
+  }
+
+  // state = {
+  //   persons: [
+  //     { id: 'asfa1', name: 'Max', age: 28 },
+  //     { id: 'vasdf1', name: 'Manu', age: 29 },
+  //     { id: 'asdf11', name: 'Stephanie', age: 26 }
+  //   ],
+  //   otherState: 'some other value',
+  //   showPersons: false
+  // }
+
+>>>>>>> 45c6efaf4c35aeeda6ab7d28d92d2113a1ddbaf7
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;

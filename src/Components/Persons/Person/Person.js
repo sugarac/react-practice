@@ -1,7 +1,10 @@
-<<<<<<< HEAD
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+
 import classes from './Person.css'
-import WithClass from '../../../hoc/WithClass'
+import withClass from '../../../hoc/withClass'
+import Auxi from '../../../hoc/Auxi'
+
 
 class Person extends Component {
     constructor(props) {
@@ -15,52 +18,32 @@ class Person extends Component {
 
     componentDidMount() {
         console.log('Person.js componentDidMount');
+        if (this.props.positoin === 0) {
+            this.inputElement.focus();
+        }
     }
 
     render() {
         console.log('Person.js render');
         return (
-            <WithClass classes={classes.Person}>
+            <Auxi>
                 <p onClick={this.props.click}>I'm {this.props.name}! and I am {this.props.age} years old!</p>
                 <p>{this.props.children}</p>
-                <input type='text' onChange={this.props.changed} value={this.props.name} />
-                {/* <input type='text' value={this.props.name}/>    cannot type         */}
-            </WithClass>
+                <input
+                    ref={(inp) => {this.inputElement = inp}}
+                    type='text'
+                    onChange={this.props.changed}
+                    value={this.props.name} />
+            </Auxi>
         )
     }
 }
 
-=======
-import React, { Component } from 'react';
-import classes from './Person.css'
-// import Radium from 'radium';
-
-class Person extends Component {
-    constructor(props) {
-        super(props); //must write
-        console.log("Person.js constructor", props);
-    }
-
-    componentWillMount() {
-        console.log("Person.js componentWillMount");
-    }
-
-    componentDidMount() {
-        console.log('Person.js componentDidMount');
-    }
-
-    render() {
-        console.log('Person.js render');
-        return (
-            <div className={classes.Person}>
-                <p onClick={this.props.click}>I'm {this.props.name}! and I am {this.props.age} years old!</p>
-                <p>{this.props.children}</p>
-                <input type='text' onChange={this.props.changed} value={this.props.name} />
-                {/* <input type='text' value={this.props.name}/>    cannot type         */}
-            </div>
-        )
-    }
+Person.propTypes = {
+    click: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    changed: PropTypes.func
 }
 
->>>>>>> 45c6efaf4c35aeeda6ab7d28d92d2113a1ddbaf7
-export default Person;
+export default withClass(Person, classes.Person);
